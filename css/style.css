@@ -1717,7 +1717,7 @@ body._popup-active {
 }
 
 ._slide-elem {
-  max-height: var(--max-height, 300px);
+  max-height: var(--mob-max-height, 300px);
   overflow: hidden;
   display: block;
   -webkit-transition: max-height 1s ease-in-out;
@@ -2562,6 +2562,7 @@ body._popup-active {
 }
 
 .welding-page__main-info {
+  padding-top: 33px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2572,8 +2573,8 @@ body._popup-active {
 
 .welding-page__main-info--block {
   -webkit-box-flex: 0;
-      -ms-flex: 0 1 50%;
-          flex: 0 1 50%;
+      -ms-flex: 0 1 51%;
+          flex: 0 1 51%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2588,8 +2589,8 @@ body._popup-active {
 
 .welding-page__image {
   -webkit-box-flex: 0;
-      -ms-flex: 0 1 50%;
-          flex: 0 1 50%;
+      -ms-flex: 0 1 49%;
+          flex: 0 1 49%;
 }
 
 .welding-page__image--img {
@@ -2598,6 +2599,9 @@ body._popup-active {
 
 .welding-page__title {
   font-size: 0.75rem;
+  color: var(--accent);
+  line-height: 140%;
+  font-weight: 700;
 }
 
 .welding-page__link-download {
@@ -2638,6 +2642,7 @@ body._popup-active {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  padding-top: 35px;
 }
 
 .welding-page__descr {
@@ -2763,10 +2768,13 @@ body._popup-active {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 57%;
           flex: 0 1 57%;
+  border: 1px solid var(--accent);
+  border-radius: var(--border-radius);
 }
 
 .contact-page__map--img {
   width: 100%;
+  border-radius: var(--border-radius);
 }
 
 .contact-page__form {
@@ -3059,6 +3067,10 @@ body._popup-active {
     padding: 10px 15px;
   }
 
+  ._slide-elem {
+    max-height: var(--max-height, 300px);
+  }
+
   ._main-title {
     font-size: 2.5rem;
   }
@@ -3249,8 +3261,16 @@ body._popup-active {
     padding: 15px 15px;
   }
 
+  .welding-page__main-info--block {
+    padding-left: 30px;
+  }
+
+  .welding-page__title {
+    font-size: 1.25rem;
+  }
+
   .welding-page__link-download {
-    margin-top: 30px;
+    margin-top: 25px;
     font-size: 1rem;
   }
 
@@ -3266,6 +3286,7 @@ body._popup-active {
 
   .welding-page__content {
     margin: 0 -15px;
+    padding-top: 55px;
   }
 
   .welding-page__descr {
@@ -3702,12 +3723,16 @@ body._popup-active {
     padding: 28px 15px;
   }
 
+  .welding-page__title {
+    font-size: 1.625rem;
+  }
+
   .welding-page__link-download {
     font-size: 1.625rem;
   }
 
   .welding-page__link-download--icon {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   .contact-page__title {
