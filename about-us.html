@@ -10,6 +10,38 @@
 <body>
 
     <div class="offset-check-js"></div>
+    <div class="header__mob-tel-popup _header-popup" id="header-mob-tel">
+        <div class="header__mob-tel-popup--body">
+            <h3 class="header__mob-tel-popup--title _title _center">
+                Как с вами связаться?
+            </h3>
+            <form action="#" class="header__mob-tel-popup--form">
+                <label class="header__mob-tel-popup--label">
+                    <input type="text" name="name" placeholder="Имя" class="header__mob-tel-popup--input _input">
+                </label>
+                <label class="header__mob-tel-popup--label">
+                    <input type="text" name="tel" placeholder="Телефон" class="header__mob-tel-popup--input _input">
+                </label>
+                <label class="header__mob-tel-popup--label">
+                    <input type="text" name="email" placeholder="E-mail" class="header__mob-tel-popup--input _input">
+                </label>
+                <label class="header__mob-tel-popup--label">
+                    <button class="header__mob-tel-popup--submit _btn">
+                        Отправить
+                    </button>
+                </label>
+                <div class="header__mob-tel-popup--checkbox _checkbox-body">
+                    <input type="checkbox" id="header-tel-check" class="header__mob-tel-popup--input-checkbox _checkbox-input" required>
+                    <label for="header-tel-check" class="header__mob-tel-popup--checkbox-label _checkbox-label">
+                        <div class="header__mob-tel-popup--checkbox-text _checkbox-label-text">
+                            Я согласен с <a href="#">пользовательским соглашением</a>
+                            и <a href="#">политикой конфиденциальности</a>
+                        </div>
+                    </label>
+                </div>
+            </form>
+        </div>
+    </div>
     <header class="header">
         <div class="header__mob-container _container">
             <ul class="header__mob-list">
@@ -21,13 +53,16 @@
                     </button>
                 </li>
                 <li class="header__mob-item header__mob-logo">
-                    <a href="#" class="header__mob-logo--link">
-                        <img src="img/logo.svg" alt="" width="155" class="header__mob-logo--img">
+                    <a href="index.html" class="header__mob-logo--link">
+                        <picture>
+                            <source srcset="img/logo.webp" type="image/webp">
+                            <img src="img/logo.png" alt="" width="155" class="header__mob-logo--img">
+                        </picture>
                     </a>
                 </li>
                 <li class="header__mob-item header__mob-phone">
-                    <a href="#" class="header__mob-phone--link">
-                        <span class="header__mob-phone--icon _icon-phone"></span>
+                    <a href="#header-mob-tel" class="header__mob-phone--link _header-popup-open">
+                        <span class="header__mob-phone--icon _icon-phone _header-popup-open-icon"></span>
                     </a>
                 </li>
             </ul>
@@ -37,8 +72,11 @@
                 <div class="header__nav--body">
                     <ul class="header__nav--list _contact-list">
                         <li class="header__nav--item header__logo">
-                            <a href="#" class="header__nav--link header__logo--link">
-                                <img src="img/logo.svg" width="337" height="44" loading="lazy" class="header__logo--img" alt="">
+                            <a href="index.html" class="header__nav--link header__logo--link">
+                                <picture>
+                                    <source srcset="img/logo.webp" type="image/webp">
+                                    <img src="img/logo.png" width="337" height="44" loading="lazy" class="header__logo--img" alt="">
+                                </picture>
                             </a>
                         </li>
                         <li class="header__nav--item">
@@ -67,7 +105,7 @@
                     </ul>
                     <ul class="header__nav--list _menu-list">
                         <li class="header__nav--item">
-                            <a href="#" class="header__nav--link _menu-link">
+                            <a href="about-us.html" class="header__nav--link _menu-link">
                                 О компании
                             </a>
                         </li>
@@ -77,22 +115,22 @@
                             </a>
                         </li>
                         <li class="header__nav--item">
-                            <a href="#" class="header__nav--link _menu-link">
+                            <a href="welding-type-page.html" class="header__nav--link _menu-link">
                                 Электронно-лучевая сварка
                             </a>
                         </li>
                         <li class="header__nav--item">
-                            <a href="#" class="header__nav--link _menu-link">
+                            <a href="welding-type-page.html" class="header__nav--link _menu-link">
                                 Лазерная сварка в вакууме
                             </a>
                         </li>
                         <li class="header__nav--item">
-                            <a href="#" class="header__nav--link _menu-link">
+                            <a href="welding-type-page.html" class="header__nav--link _menu-link">
                                 Аддитивное оборудование
                             </a>
                         </li>
                         <li class="header__nav--item">
-                            <a href="#" class="header__nav--link _menu-link">
+                            <a href="contact-page.html" class="header__nav--link _menu-link">
                                 Контакты
                             </a>
                         </li>
@@ -101,8 +139,6 @@
             </nav>
         </div>
     </header>
-
-
 
 <div class="wrapper">
     <section class="about-us">

@@ -10,6 +10,38 @@
 <body>
 
     <div class="offset-check-js"></div>
+    <div class="header__mob-tel-popup _header-popup" id="header-mob-tel">
+        <div class="header__mob-tel-popup--body">
+            <h3 class="header__mob-tel-popup--title _title _center">
+                Как с вами связаться?
+            </h3>
+            <form action="#" class="header__mob-tel-popup--form">
+                <label class="header__mob-tel-popup--label">
+                    <input type="text" name="name" placeholder="Имя" class="header__mob-tel-popup--input _input">
+                </label>
+                <label class="header__mob-tel-popup--label">
+                    <input type="text" name="tel" placeholder="Телефон" class="header__mob-tel-popup--input _input">
+                </label>
+                <label class="header__mob-tel-popup--label">
+                    <input type="text" name="email" placeholder="E-mail" class="header__mob-tel-popup--input _input">
+                </label>
+                <label class="header__mob-tel-popup--label">
+                    <button class="header__mob-tel-popup--submit _btn">
+                        Отправить
+                    </button>
+                </label>
+                <div class="header__mob-tel-popup--checkbox _checkbox-body">
+                    <input type="checkbox" id="header-tel-check" class="header__mob-tel-popup--input-checkbox _checkbox-input" required>
+                    <label for="header-tel-check" class="header__mob-tel-popup--checkbox-label _checkbox-label">
+                        <div class="header__mob-tel-popup--checkbox-text _checkbox-label-text">
+                            Я согласен с <a href="#">пользовательским соглашением</a>
+                            и <a href="#">политикой конфиденциальности</a>
+                        </div>
+                    </label>
+                </div>
+            </form>
+        </div>
+    </div>
     <header class="header">
         <div class="header__mob-container _container">
             <ul class="header__mob-list">
@@ -21,13 +53,16 @@
                     </button>
                 </li>
                 <li class="header__mob-item header__mob-logo">
-                    <a href="#" class="header__mob-logo--link">
-                        <img src="img/logo.svg" alt="" width="155" class="header__mob-logo--img">
+                    <a href="index.html" class="header__mob-logo--link">
+                        <picture>
+                            <source srcset="img/logo.webp" type="image/webp">
+                            <img src="img/logo.png" alt="" width="155" class="header__mob-logo--img">
+                        </picture>
                     </a>
                 </li>
                 <li class="header__mob-item header__mob-phone">
-                    <a href="#" class="header__mob-phone--link">
-                        <span class="header__mob-phone--icon _icon-phone"></span>
+                    <a href="#header-mob-tel" class="header__mob-phone--link _header-popup-open">
+                        <span class="header__mob-phone--icon _icon-phone _header-popup-open-icon"></span>
                     </a>
                 </li>
             </ul>
@@ -37,8 +72,11 @@
                 <div class="header__nav--body">
                     <ul class="header__nav--list _contact-list">
                         <li class="header__nav--item header__logo">
-                            <a href="#" class="header__nav--link header__logo--link">
-                                <img src="img/logo.svg" width="337" height="44" loading="lazy" class="header__logo--img" alt="">
+                            <a href="index.html" class="header__nav--link header__logo--link">
+                                <picture>
+                                    <source srcset="img/logo.webp" type="image/webp">
+                                    <img src="img/logo.png" width="337" height="44" loading="lazy" class="header__logo--img" alt="">
+                                </picture>
                             </a>
                         </li>
                         <li class="header__nav--item">
@@ -67,7 +105,7 @@
                     </ul>
                     <ul class="header__nav--list _menu-list">
                         <li class="header__nav--item">
-                            <a href="#" class="header__nav--link _menu-link">
+                            <a href="about-us.html" class="header__nav--link _menu-link">
                                 О компании
                             </a>
                         </li>
@@ -77,22 +115,22 @@
                             </a>
                         </li>
                         <li class="header__nav--item">
-                            <a href="#" class="header__nav--link _menu-link">
+                            <a href="welding-type-page.html" class="header__nav--link _menu-link">
                                 Электронно-лучевая сварка
                             </a>
                         </li>
                         <li class="header__nav--item">
-                            <a href="#" class="header__nav--link _menu-link">
+                            <a href="welding-type-page.html" class="header__nav--link _menu-link">
                                 Лазерная сварка в вакууме
                             </a>
                         </li>
                         <li class="header__nav--item">
-                            <a href="#" class="header__nav--link _menu-link">
+                            <a href="welding-type-page.html" class="header__nav--link _menu-link">
                                 Аддитивное оборудование
                             </a>
                         </li>
                         <li class="header__nav--item">
-                            <a href="#" class="header__nav--link _menu-link">
+                            <a href="contact-page.html" class="header__nav--link _menu-link">
                                 Контакты
                             </a>
                         </li>
@@ -102,27 +140,42 @@
         </div>
     </header>
 
-
-
 <div class="wrapper">
     <section class="welding-type-page">
         <div class="welding-type-page__container _container">
             <div class="welding-type-page__header">
-                <div class="welding-type-page__header--bg">
-                    <picture>
-                        <source srcset="img/about-us/intro/image.webp" type="image/webp">
-                        <img src="img/about-us/intro/image.jpg" loading="lazy" width="500" alt="" class="welding-type-page__header--img">
-                    </picture>
-                </div>
-                <div class="welding-type-page__header--info">
-                    <picture>
-                        <source srcset="img/welding-type/intro/logo.webp" type="image/webp">
-                        <img src="img/welding-type/intro/logo.png" width="132" class="welding-type-page__header--logo" loading="lazy" alt="">
-                    </picture>
-                    <h2 class="welding-type-page__header--title">
-                        Электронно-лучевая <br>
-                        сварка
+                <div class="welding-type-page__header--row">
+                    <h2 class="welding-type-page__header--row-title _section-title">
+                        Электронно-лучевая сварка
                     </h2>
+                    <form action="#" class="welding-type-page__header--form">
+                        <label class="welding-type-page__header--label _select-label">
+                            <select name="welding-type" class="welding-type-page__header--select _select">
+                                <option value="welding-type-1">К оборудованию</option>
+                                <option value="welding-type-2">К оборудованию 2</option>
+                                <option value="welding-type-3">К оборудованию 3</option>
+                            </select>
+                            <span class="welding-type-page__header--select-icon _icon-arrow _select-icon"></span>
+                        </label>
+                    </form>
+                </div>
+                <div class="welding-type-page__header--banner">
+                    <div class="welding-type-page__header--bg">
+                        <picture>
+                            <source srcset="img/welding-type/intro/intro.webp" type="image/webp">
+                            <img src="img/welding-type/intro/intro.jpg" loading="lazy" width="500" alt="" class="welding-type-page__header--img">
+                        </picture>
+                    </div>
+                    <div class="welding-type-page__header--info">
+                        <picture>
+                            <source srcset="img/welding-type/intro/logo.webp" type="image/webp">
+                            <img src="img/welding-type/intro/logo.png" width="132" class="welding-type-page__header--logo" loading="lazy" alt="">
+                        </picture>
+                        <h2 class="welding-type-page__header--title">
+                            Электронно-лучевая <br>
+                            сварка
+                        </h2>
+                    </div>
                 </div>
             </div>
             <div class="welding-type-page__content _text-content">
@@ -164,13 +217,13 @@
                 </p>
             </div>
             <div class="welding-type-page__slider">
-                <div class="welding-type-page__slider--container _container _min swiper">
+                <div class="welding-type-page__slider--block swiper">
                     <h2 class="welding-type-page__slider--title _section-title _center">
                         Примеры оборудования
                     </h2>
                     <ul class="welding-type-page__slider--list swiper-wrapper">
                         <li class="welding-type-page__slider-item welding-card swiper-slide">
-    <a href="#" class="welding-type-page__slider-item--body welding-card__body">
+    <a href="welding-page.html" class="welding-type-page__slider-item--body welding-card__body">
         <div class="welding-type-page__slider-item--image welding-card__image">
             <picture>
                 <source srcset="img/main-page/intro/image-1.webp" type="image/webp">
@@ -184,7 +237,7 @@
         </div>
     </a>
 </li><li class="welding-type-page__slider-item welding-card swiper-slide">
-    <a href="#" class="welding-type-page__slider-item--body welding-card__body">
+    <a href="welding-page.html" class="welding-type-page__slider-item--body welding-card__body">
         <div class="welding-type-page__slider-item--image welding-card__image">
             <picture>
                 <source srcset="img/main-page/intro/image-1.webp" type="image/webp">
@@ -198,7 +251,7 @@
         </div>
     </a>
 </li><li class="welding-type-page__slider-item welding-card swiper-slide">
-    <a href="#" class="welding-type-page__slider-item--body welding-card__body">
+    <a href="welding-page.html" class="welding-type-page__slider-item--body welding-card__body">
         <div class="welding-type-page__slider-item--image welding-card__image">
             <picture>
                 <source srcset="img/main-page/intro/image-1.webp" type="image/webp">
@@ -212,7 +265,7 @@
         </div>
     </a>
 </li><li class="welding-type-page__slider-item welding-card swiper-slide">
-    <a href="#" class="welding-type-page__slider-item--body welding-card__body">
+    <a href="welding-page.html" class="welding-type-page__slider-item--body welding-card__body">
         <div class="welding-type-page__slider-item--image welding-card__image">
             <picture>
                 <source srcset="img/main-page/intro/image-1.webp" type="image/webp">
@@ -226,7 +279,7 @@
         </div>
     </a>
 </li><li class="welding-type-page__slider-item welding-card swiper-slide">
-    <a href="#" class="welding-type-page__slider-item--body welding-card__body">
+    <a href="welding-page.html" class="welding-type-page__slider-item--body welding-card__body">
         <div class="welding-type-page__slider-item--image welding-card__image">
             <picture>
                 <source srcset="img/main-page/intro/image-1.webp" type="image/webp">
@@ -242,8 +295,8 @@
 </li>
                     </ul>
                     <div class="welding-type-page__slider--nav">
-                        <div class="welding-type-page__slider--arrow _next swiper-button-next"></div>
-                        <div class="welding-type-page__slider--arrow _prev swiper-button-prev"></div>
+                        <div class="welding-type-page__slider--arrow _slider-arrow _next _icon-arrow swiper-button-next"></div>
+                        <div class="welding-type-page__slider--arrow _slider-arrow _prev _icon-arrow swiper-button-prev"></div>
                     </div>
                     <div class="welding-type-page__slider--pagination swiper-pagination"></div>
                 </div>

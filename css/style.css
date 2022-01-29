@@ -1540,12 +1540,12 @@ body._popup-active {
   padding: 10px 15px;
   background-color: var(--accent);
   color: var(--white);
+  text-align: center;
   font-size: 1.125rem;
   min-height: 50px;
   line-height: 150%;
   border-radius: 25px;
   border: 1px solid var(--accent);
-  min-width: 337px;
   -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
@@ -1644,6 +1644,90 @@ body._popup-active {
   opacity: 1;
 }
 
+._slider-arrow {
+  width: 40px;
+  height: 40px;
+  color: var(--accent);
+  -webkit-transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
+}
+
+._slider-arrow::after {
+  display: none;
+}
+
+._slider-arrow:hover {
+  color: var(--accent-alt);
+}
+
+._slider-arrow._next {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+._slider-arrow._prev {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+._table {
+  border-collapse: collapse;
+  color: var(--text);
+  font-size: 0.625rem;
+  line-height: 155%;
+}
+
+._table td {
+  padding: 3px 5px;
+  font-weight: 300;
+}
+
+._table tr td:first-child {
+  padding-left: 0px;
+}
+
+._table th {
+  border-bottom: 1px solid var(--text-alt);
+  border-top: 1px solid var(--text-alt);
+  text-align: left;
+  font-weight: 300;
+  padding: 10px 0;
+}
+
+._table th b {
+  font-weight: 700;
+}
+
+._table tr:first-child th {
+  border-top: 0;
+}
+
+._table th + td {
+  border-bottom: 1px solid var(--text-alt);
+  border-top: 1px solid var(--text-alt);
+  border-left: 1px solid var(--text-alt);
+}
+
+._table tr:first-child th + td {
+  border-top: 0;
+}
+
+._table td:first-child {
+  border-right: 1px solid var(--text-alt);
+}
+
+._slide-elem {
+  max-height: var(--max-height, 300px);
+  overflow: hidden;
+  display: block;
+  -webkit-transition: max-height 1s ease-in-out;
+  transition: max-height 1s ease-in-out;
+}
+
+._slide-elem._active {
+  max-height: 100%;
+}
+
 ._main-title {
   font-family: var(--title-font);
   font-weight: 700;
@@ -1691,12 +1775,32 @@ body._popup-active {
 }
 
 ._text-content p {
-  padding-top: 30px;
+  padding-top: 15px;
 }
 
 ._text-content em {
   color: var(--accent);
   font-style: normal;
+}
+
+._text-content ul {
+  padding-top: 10px;
+}
+
+._text-content li {
+  padding-left: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+._text-content li::before {
+  content: "•";
+  margin-right: 5px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 ._input,
@@ -1813,6 +1917,39 @@ body._popup-active {
   color: var(--accent-alt);
 }
 
+._select {
+  -webkit-appearance: none;
+  color: var(--accent);
+  font-size: 0.625rem;
+  cursor: pointer;
+}
+
+._select-label {
+  position: relative;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+._select-icon {
+  color: var(--accent);
+  font-size: 7px;
+  margin-left: 5px;
+}
+
+._header-popup-open._active ._header-popup-open-icon::before {
+  display: none;
+}
+
+._header-popup-open._active ._header-popup-open-icon::after {
+  content: "✕";
+  font-size: 25px;
+}
+
 .header {
   position: absolute;
   left: 0;
@@ -1825,13 +1962,18 @@ body._popup-active {
   transition: -webkit-transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
-  z-index: 99;
+  z-index: 100;
   /* &__logo {
       max-width: 150px;
       &--img {
           width: 100%;
       }
   } */
+}
+
+.header._header-popup-active .header__burger {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .header._active {
@@ -1842,6 +1984,73 @@ body._popup-active {
 .header._active .header__mob-list {
   padding: 0;
   min-height: 50px;
+}
+
+.header__mob-tel-popup {
+  position: fixed;
+  left: 0;
+  top: var(--header-height);
+  width: 100%;
+  height: calc(100vh - var(--header-height));
+  opacity: 0;
+  visibility: hidden;
+  overflow-y: auto;
+  z-index: 99;
+  background-color: var(--white);
+  -webkit-transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+}
+
+.header__mob-tel-popup._active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.header__mob-tel-popup--body {
+  padding: 30px 15px;
+}
+
+.header__mob-tel-popup--title {
+  font-weight: 700 !important;
+  font-size: 1.125rem;
+  padding-bottom: 15px;
+}
+
+.header__mob-tel-popup--form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 -10px;
+}
+
+.header__mob-tel-popup--label {
+  width: 100%;
+  padding: 10px;
+}
+
+.header__mob-tel-popup--input,
+.header__mob-tel-popup--submit,
+.header__mob-tel-popup--checkbox {
+  width: 100%;
+}
+
+.header__mob-tel-popup--submit {
+  border-radius: var(--mob-border-radius);
+}
+
+.header__mob-tel-popup--checkbox {
+  padding: 10px;
+}
+
+.header__mob-tel-popup--checkbox-text {
+  font-size: 0.625rem;
 }
 
 .header__mob-container {
@@ -1869,7 +2078,19 @@ body._popup-active {
   padding: 15px 0;
 }
 
+.header__mob-logo {
+  position: relative;
+  z-index: 200;
+}
+
 .header__mob-phone--link {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 20px;
   color: var(--accent);
   -webkit-transition: color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out;
@@ -2026,6 +2247,8 @@ body._popup-active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
 }
 
 .header__logo {
@@ -2178,6 +2401,12 @@ body._popup-active {
 .about-us__certificates-item--body {
   color: var(--accent);
   text-align: center;
+  -webkit-transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
+}
+
+.about-us__certificates-item--body:hover {
+  color: var(--accent-alt);
 }
 
 .about-us__certificates-item--img {
@@ -2194,12 +2423,440 @@ body._popup-active {
   line-height: 125%;
 }
 
+.welding-type-page__header--row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.welding-type-page__header--row-title {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: 1/1;
+  text-align: center;
+  padding: 7px;
+  margin: 0 auto;
+}
+
+.welding-type-page__header--form {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: 1/1;
+  -ms-grid-column-align: end;
+      justify-self: end;
+  padding: 10px;
+}
+
+.welding-type-page__header--banner {
+  display: -ms-grid;
+  display: grid;
+}
+
+.welding-type-page__header--bg {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: 1/1;
+}
+
+.welding-type-page__header--img {
+  width: 100%;
+  min-height: 90px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: var(--mob-border-radius);
+}
+
+.welding-type-page__header--info {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: 1/1;
+  -ms-grid-row-align: center;
+      align-self: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px 30px;
+}
+
+.welding-type-page__header--logo {
+  max-width: 40px;
+  margin-right: 10px;
+}
+
+.welding-type-page__header--title {
+  font-size: 0.75rem;
+  line-height: 125%;
+  color: var(--accent);
+}
+
+.welding-type-page__content {
+  padding-top: 40px;
+}
+
+.welding-type-page__slider {
+  padding-top: 20px;
+}
+
+.welding-type-page__slider--block {
+  padding-bottom: 40px;
+}
+
+.welding-type-page__slider--title {
+  padding-bottom: 20px;
+}
+
+.welding-type-page__slider--nav {
+  display: none;
+}
+
+.welding-type-page__slider-item {
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.welding-type-page__slider-item.swiper-slide-active {
+  opacity: 1;
+}
+
+.welding-type-page__slider-item.swiper-slide-next {
+  opacity: 1;
+}
+
+.welding-type-page__slider-item--body {
+  overflow: hidden;
+}
+
 .welding-type-page__slider-item--image {
-  padding-bottom: 100px;
+  padding: 15px 15px 30px 15px;
+}
+
+.welding-type-page__slider-item--img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-width: 200px;
 }
 
 .welding-type-page__slider-item--info {
-  padding-bottom: 30px;
+  padding-bottom: 15px;
+  max-width: 85%;
+}
+
+.welding-type-page__slider-item--title {
+  padding: 4px 15px;
+  font-size: 0.5rem;
+  line-height: 100%;
+}
+
+.welding-page__main-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.welding-page__main-info--block {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.welding-page__image {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
+}
+
+.welding-page__image--img {
+  width: 100%;
+}
+
+.welding-page__title {
+  font-size: 0.75rem;
+}
+
+.welding-page__link-download {
+  margin-top: 15px;
+  color: var(--accent);
+  font-size: 0.625rem;
+  line-height: 119%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
+}
+
+.welding-page__link-download:hover {
+  color: var(--accent-alt);
+}
+
+.welding-page__link-download--icon {
+  margin-right: 10px;
+  font-size: 1rem;
+}
+
+.welding-page__link-btn {
+  margin-top: 15px;
+  min-width: 100%;
+  font-size: 0.75rem;
+  min-height: 0;
+  padding: 6px;
+}
+
+.welding-page__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.welding-page__descr {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 100%;
+          flex: 1 1 100%;
+}
+
+.welding-page__table-info {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 100%;
+          flex: 1 1 100%;
+  padding-top: 15px;
+}
+
+.welding-page__table-info--elem {
+  padding-top: 20px;
+}
+
+.welding-page__table-info--col-1 {
+  width: 60%;
+}
+
+.welding-page__table-info--col-2 {
+  width: 40%;
+}
+
+.welding-page__table-info--slide-btn {
+  min-width: 100%;
+  font-size: 1rem;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-radius 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-radius 0.2s ease-in-out;
+}
+
+.welding-page__table-info--slide-btn._active {
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+.welding-page__table-info--slide-btn._active .welding-page__table-info--slide-icon {
+  display: inline-block;
+  -webkit-transform: scaleY(-1);
+          transform: scaleY(-1);
+}
+
+.welding-page__table-info--slide-icon {
+  font-size: 10px;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+}
+
+.contact-page__title {
+  padding: 20px 0 15px 0;
+}
+
+.contact-page__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+}
+
+.contact-page__list {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 43%;
+          flex: 0 1 43%;
+  margin: 5px 0;
+}
+
+.contact-page__item {
+  padding: 5px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.contact-page__item--lang {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 30px;
+          flex: 0 0 30px;
+  margin-right: 15px;
+}
+
+.contact-page__item--info {
+  color: var(--accent);
+}
+
+.contact-page__item--title {
+  font-size: 0.875rem;
+}
+
+.contact-page__item--li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 115%;
+}
+
+.contact-page__item--link {
+  color: var(--accent);
+  /* line-height: 155%; */
+  font-size: 0.625rem;
+  -webkit-transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
+}
+
+.contact-page__item--link:hover {
+  color: var(--accent-alt);
+}
+
+.contact-page__map {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 57%;
+          flex: 0 1 57%;
+}
+
+.contact-page__map--img {
+  width: 100%;
+}
+
+.contact-page__form {
+  padding-top: 50px;
+}
+
+.contact-page__form--body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: -15px;
+}
+
+.contact-page__form--info {
+  text-align: center;
+}
+
+.contact-page__form--subtitle {
+  display: inline-block;
+  padding-top: 15px;
+}
+
+.contact-page__form--block {
+  padding: 15px;
+}
+
+.contact-page__form--fieldset {
+  padding: 0;
+  /* &._min {
+      flex: 0 1 44%;
+  }
+  &._large {
+      flex: 0 1 56%;
+  } */
+}
+
+.contact-page__form--label {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 100%;
+  min-height: 100%;
+  padding: 7.5px 0;
+}
+
+.contact-page__form--input {
+  width: 100%;
+}
+
+.contact-page__form--textarea {
+  min-height: 100%;
+  width: 100%;
+}
+
+.contact-page__form--footer {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
+  padding: 15px 0 0 0;
+  /* @include _992 {
+      margin-top: -15px;
+  } */
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contact-page__form--submit {
+  min-width: 100%;
+}
+
+.contact-page__form--checkbox {
+  padding-top: 15px;
+  max-width: 337px;
 }
 
 .footer {
@@ -2306,8 +2963,22 @@ body._popup-active {
   height: 27px;
 }
 
+@media (min-width: 350px) {
+  .header__mob-tel-popup--body {
+    padding: 30px 50px;
+  }
+}
+
 @media (min-width: 426px) {
+  ._btn {
+    min-width: 337px;
+  }
+
   ._text-content img {
+    border-radius: var(--border-radius);
+  }
+
+  .header__mob-tel-popup--submit {
     border-radius: var(--border-radius);
   }
 
@@ -2317,6 +2988,37 @@ body._popup-active {
 
   .about-us__certificates-item--name {
     padding-top: 15px;
+  }
+
+  .welding-type-page__header--img {
+    border-radius: var(--border-radius);
+  }
+
+  .welding-type-page__slider-item--title {
+    padding: 10px 15px;
+    font-size: 0.7rem;
+  }
+
+  .welding-page__link-btn {
+    min-width: 100%;
+  }
+
+  .welding-page__table-info--slide-btn {
+    min-width: 100%;
+  }
+}
+
+@media (min-width: 500px) {
+  .contact-page__form--block {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: calc(50% - 7.5px) calc(50% - 7.5px);
+    grid-template-columns: calc(50% - 7.5px) calc(50% - 7.5px);
+    gap: 15px;
+  }
+
+  .contact-page__form--footer {
+    padding: 0;
   }
 }
 
@@ -2341,6 +3043,22 @@ body._popup-active {
     padding: 20px 15px;
   }
 
+  ._table {
+    font-size: 0.875rem;
+  }
+
+  ._table td {
+    padding: 3px 15px;
+  }
+
+  ._table tr td:first-child {
+    padding-left: 30px;
+  }
+
+  ._table th {
+    padding: 10px 15px;
+  }
+
   ._main-title {
     font-size: 2.5rem;
   }
@@ -2361,11 +3079,31 @@ body._popup-active {
     font-size: 1rem;
   }
 
+  ._text-content p {
+    padding-top: 30px;
+  }
+
+  ._text-content ul {
+    padding-top: 20px;
+  }
+
   ._input,
   ._textarea {
     font-size: 1rem;
     padding: 15px 25px;
     border-radius: var(--border-radius);
+  }
+
+  ._select {
+    font-size: 1rem;
+  }
+
+  ._select-icon {
+    font-size: 12px;
+  }
+
+  .header__mob-tel-popup--checkbox-text {
+    font-size: 1rem;
   }
 
   .header__nav--link._contact-link {
@@ -2377,8 +3115,11 @@ body._popup-active {
     font-size: 1rem;
   }
 
-  .welding-category__list {
+  .welding-category__slider {
     margin: -15px;
+  }
+
+  .welding-category__list {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     -webkit-box-pack: center;
@@ -2464,6 +3205,144 @@ body._popup-active {
     font-size: 1rem;
   }
 
+  .welding-type-page__header--row {
+    display: -ms-grid;
+    display: grid;
+    padding: 40px 0 30px 0;
+  }
+
+  .welding-type-page__header--row-title {
+    max-width: 50%;
+  }
+
+  .welding-type-page__header--info {
+    padding: 10px 80px;
+  }
+
+  .welding-type-page__header--logo {
+    max-width: 90px;
+    margin-right: 20px;
+  }
+
+  .welding-type-page__header--title {
+    font-size: 1.3rem;
+  }
+
+  .welding-type-page__slider {
+    padding-top: 40px;
+  }
+
+  .welding-type-page__slider--title {
+    padding-bottom: 50px;
+  }
+
+  .welding-type-page__slider-item--image {
+    padding: 5px 15px 130px 15px;
+  }
+
+  .welding-type-page__slider-item--info {
+    padding-bottom: 30px;
+  }
+
+  .welding-type-page__slider-item--title {
+    font-size: 1rem;
+    padding: 15px 15px;
+  }
+
+  .welding-page__link-download {
+    margin-top: 30px;
+    font-size: 1rem;
+  }
+
+  .welding-page__link-download--icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+  }
+
+  .welding-page__link-btn {
+    min-width: 337px;
+    margin-top: 30px;
+  }
+
+  .welding-page__content {
+    margin: 0 -15px;
+  }
+
+  .welding-page__descr {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 50%;
+            flex: 0 1 50%;
+    padding: 15px;
+  }
+
+  .welding-page__table-info {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 50%;
+            flex: 0 1 50%;
+    padding: 15px;
+  }
+
+  .contact-page__title {
+    padding: 30px 0 50px 0;
+  }
+
+  .contact-page__body {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+
+  .contact-page__list {
+    margin: -21px 0;
+  }
+
+  .contact-page__item {
+    padding: 21px 0;
+  }
+
+  .contact-page__item--title {
+    font-size: 1.2rem;
+    padding-bottom: 5px;
+  }
+
+  .contact-page__item--link {
+    font-size: 1rem;
+    line-height: 155%;
+  }
+
+  .contact-page__form {
+    padding-top: 75px;
+  }
+
+  .contact-page__form--body {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+
+  .contact-page__form--info {
+    text-align: left;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 35%;
+            flex: 0 1 35%;
+    padding: 15px;
+  }
+
+  .contact-page__form--block {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 70%;
+            flex: 0 1 70%;
+  }
+
+  .contact-page__form--submit {
+    min-width: 337px;
+  }
+
   .footer {
     margin-top: 40px;
   }
@@ -2509,6 +3388,7 @@ body._popup-active {
 @media (min-width: 992px) {
   .wrapper {
     min-height: 400px;
+    padding-top: 0;
   }
 
   ._section-padding {
@@ -2533,6 +3413,18 @@ body._popup-active {
   .welding-card__title {
     font-size: 1.3125rem;
     padding: 28px 15px;
+  }
+
+  ._table {
+    font-size: 1rem;
+  }
+
+  ._table td {
+    padding: 5px 15px;
+  }
+
+  ._table tr td:first-child {
+    padding-left: 50px;
   }
 
   ._main-title {
@@ -2561,19 +3453,30 @@ body._popup-active {
     padding: 20px 30px;
   }
 
+  ._select {
+    font-size: 1.3125rem;
+  }
+
   .header {
+    position: static;
+    -webkit-box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0);
   }
 
-  .header {
-    -webkit-box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+  .header._active {
+    position: static;
+    background-color: var(--white);
   }
 
-  .header._active {
-    position: absolute;
-    background-color: var(--white);
+  .header__mob-tel-popup._active {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .header__mob-tel-popup--checkbox-text {
+    font-size: 1.3125rem;
   }
 
   .header__mob-container {
@@ -2750,6 +3653,108 @@ body._popup-active {
     font-size: 1.3125rem;
   }
 
+  .welding-type-page__header--row {
+    padding: 70px 0 60px 0;
+  }
+
+  .welding-type-page__header--info {
+    padding: 18px 123px;
+  }
+
+  .welding-type-page__header--logo {
+    max-width: 100%;
+    margin-right: 30px;
+  }
+
+  .welding-type-page__header--title {
+    font-size: 2rem;
+  }
+
+  .welding-type-page__slider {
+    padding-top: 60px;
+  }
+
+  .welding-type-page__slider--title {
+    padding-bottom: 70px;
+  }
+
+  .welding-type-page__slider--nav {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    -webkit-transform: translate(0, 40px);
+            transform: translate(0, 40px);
+    width: 100%;
+    z-index: 100;
+    display: block;
+  }
+
+  .welding-type-page__slider--pagination {
+    display: none;
+  }
+
+  .welding-type-page__slider-item.swiper-slide-next + .swiper-slide {
+    opacity: 1;
+  }
+
+  .welding-type-page__slider-item--title {
+    font-size: 1.3125rem;
+    padding: 28px 15px;
+  }
+
+  .welding-page__link-download {
+    font-size: 1.625rem;
+  }
+
+  .welding-page__link-download--icon {
+    font-size: 2rem;
+  }
+
+  .contact-page__title {
+    padding: 40px 0 70px 0;
+  }
+
+  .contact-page__list {
+    margin: -41px 0;
+  }
+
+  .contact-page__item {
+    padding: 41px 0;
+  }
+
+  .contact-page__item--title {
+    font-size: 1.625rem;
+    padding-bottom: 10px;
+  }
+
+  .contact-page__item--link {
+    font-size: 1.3125rem;
+  }
+
+  .contact-page__form {
+    padding-top: 100px;
+  }
+
+  .contact-page__form--info {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 42%;
+            flex: 0 1 42%;
+  }
+
+  .contact-page__form--block {
+    -ms-grid-columns: calc(44% - 15px) calc(56% - 15px);
+    grid-template-columns: calc(44% - 15px) calc(56% - 15px);
+    gap: 30px;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 58%;
+            flex: 0 1 58%;
+    margin-top: -15px;
+  }
+
+  .contact-page__form--label {
+    padding: 15px 0;
+  }
+
   .footer {
     margin-top: 65px;
     padding-top: 27px;
@@ -2798,5 +3803,11 @@ body._popup-active {
     -webkit-box-flex: 0;
         -ms-flex: 0 1 25%;
             flex: 0 1 25%;
+  }
+}
+
+@media (min-width: 1480px) {
+  .welding-type-page__slider--block {
+    padding: 0 100px 40px 100px;
   }
 }

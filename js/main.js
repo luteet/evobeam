@@ -1,4 +1,6 @@
 
+
+
 const body = document.querySelector('body'),
   html = document.querySelector('html'),
   menu = document.querySelectorAll('._burger, .header__nav, body'),
@@ -8,7 +10,7 @@ const body = document.querySelector('body'),
 
 
 
-let thisTarget;
+let thisTarget, slideCheck = true;
 body.addEventListener('click', function (event) {
 
   thisTarget = event.target;
@@ -18,6 +20,61 @@ body.addEventListener('click', function (event) {
     menu.forEach(elem => {
       elem.classList.toggle('_active')
     })
+  }
+
+
+  let slideBtn = thisTarget.closest('._slide-btn');
+  if(slideBtn) {
+    
+    let slideElem     = document.querySelector('#' + slideBtn.dataset.slideId),
+        slideBtnText  = slideBtn.querySelector('.welding-page__table-info--slide-text');
+
+    
+    if(slideElem) {
+
+      if(!slideElem.classList.contains('_active')) {
+        slideElem.classList.add('_active');
+        slideBtn.classList.add('_active');
+        
+        if(slideBtn.dataset.active && slideBtn.dataset.default && slideBtnText) slideBtnText.textContent = slideBtn.dataset.active;
+
+      } else {
+        slideElem.classList.remove('_active');
+        slideBtn.classList.remove('_active');
+        
+        if(slideBtn.dataset.active && slideBtn.dataset.default && slideBtnText) slideBtnText.textContent = slideBtn.dataset.default;
+
+      }
+      
+    }
+
+
+  }
+
+
+
+  let headerPopupOpen = thisTarget.closest('._header-popup-open');
+  if(headerPopupOpen) {
+    event.preventDefault();
+
+    let headerPopup = document.querySelector(headerPopupOpen.getAttribute('href'));
+
+    if(!headerPopupOpen.classList.contains('_active') && headerPopup) {
+      
+      headerPopupOpen.classList.add('_active');
+      headerPopup.classList.add('_active');
+      body.classList.add('_active');
+      header.classList.add('_header-popup-active');
+
+    } else if(headerPopupOpen.classList.contains('_active') && headerPopup) {
+
+      headerPopupOpen.classList.remove('_active');
+      headerPopup.classList.remove('_active');
+      body.classList.remove('_active');
+      header.classList.remove('_header-popup-active');
+
+    }
+    
   }
 
 
@@ -31,7 +88,7 @@ let weldingCategorySlider, aboutUsCertigicatesSlider;
 let weldingCategorySliderCheck = document.querySelector('.welding-category__slider'),
   aboutUsCertigicatesSliderCheck = document.querySelector('.about-us__certificates');
 
-  new Swiper('.welding-type-page__slider--container', {
+  new Swiper('.welding-type-page__slider--block', {
 
     spaceBetween: 10,
     slidesPerView: 2,
@@ -48,7 +105,7 @@ let weldingCategorySliderCheck = document.querySelector('.welding-category__slid
     },
 
     breakpoints: {
-      768: {
+      992: {
         slidesPerView: 3,
         spaceBetween: 30,
       },
@@ -76,6 +133,8 @@ function scrollPage() {
   const offsetCheckJs = document.querySelector('.offset-check-js');
   let top = [getCoords(offsetCheckJs).top, false];
 
+  let headerPopup = document.querySelectorAll('._header-popup');
+
   header.classList.add('_loaded');
 
   function scrollPageFunc() {
@@ -90,6 +149,11 @@ function scrollPage() {
         header.classList.add('_active');
         header.style.setProperty('--pos', '0%');
         header.style.setProperty('--header-height', header.offsetHeight + 'px');
+        if(headerPopup[0]) {
+          headerPopup.forEach(element => {
+            element.style.setProperty('--header-height', header.offsetHeight + 'px');
+          })
+        }
       }, 200);
 
     } else if (top[0] <= 300 && top[1] == true) {
@@ -101,7 +165,11 @@ function scrollPage() {
         header.style.setProperty('--pos', '0%');
         header.classList.remove('_active');
         header.style.setProperty('--header-height', header.offsetHeight + 'px');
-
+        if(headerPopup[0]) {
+          headerPopup.forEach(element => {
+            element.style.setProperty('--header-height', header.offsetHeight + 'px');
+          })
+        }
       }, 200);
 
     }
@@ -143,7 +211,7 @@ function resize() {
 
   windowSize = window.innerWidth;
 
-  html.style.setProperty('--header-height', header.offsetHeight + 'px');
+  if(!header.classList.contains('_active')) html.style.setProperty('--header-height', header.offsetHeight + 'px');
   resizeCheckFunc(768,
     function () {  // screen > 768px
 
@@ -188,16 +256,33 @@ function resize() {
   resizeCheckFunc(992,
     function () {  // screen > 992px
 
-      menu.forEach(elem => {
+      /* menu.forEach(elem => {
         elem.classList.remove('_active')
-      })
+      }) */
+
+      //html.style.setProperty('--header-height', header.offsetHeight + 'px');
+      /* if(header.classList.contains('_active')) {
+        header.classList.remove('_active');
+        html.style.setProperty('--header-height', header.offsetHeight + 'px');
+        header.classList.add('_active');
+      } else {
+        html.style.setProperty('--header-height', header.offsetHeight + 'px');
+      } */
 
     },
     function () {  // screen < 992px
 
-      header.style.setProperty('--header-height', header.offsetHeight + 'px');
+      if(header.classList.contains('_active')) {
+        header.classList.remove('_active');
+        html.style.setProperty('--header-height', header.offsetHeight + 'px');
+        header.classList.add('_active');
+      } else {
+        html.style.setProperty('--header-height', header.offsetHeight + 'px');
+      }
       
-    });
+      
+  });
+
 
 }
 
