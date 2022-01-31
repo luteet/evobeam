@@ -66,6 +66,10 @@ body.addEventListener('click', function (event) {
       body.classList.add('_active');
       header.classList.add('_header-popup-active');
 
+      menu.forEach(elem => {
+        elem.classList.remove('_active')
+      })
+
     } else if(headerPopupOpen.classList.contains('_active') && headerPopup) {
 
       headerPopupOpen.classList.remove('_active');
@@ -116,6 +120,8 @@ let weldingCategorySliderCheck = document.querySelector('.welding-category__slid
 // =-=-=-=-=-=-=-=-=-=-=-=- </slider> -=-=-=-=-=-=-=-=-=-=-=-=
 
 
+// =-=-=-=-=-=-=-=-=-=-=-=- <onscroll> -=-=-=-=-=-=-=-=-=-=-=-=
+
 function getCoords(elem) {
   var box = elem.getBoundingClientRect();
 
@@ -125,8 +131,6 @@ function getCoords(elem) {
   };
 
 }
-
-let sticky;
 
 
 function scrollPage() {
@@ -141,8 +145,6 @@ function scrollPage() {
 
   function scrollPageFunc() {
     top[0] = getCoords(offsetCheckJs).top;
-
-
 
     if (top[0] >= 300 && top[1] == false) {
 
@@ -177,6 +179,7 @@ function scrollPage() {
       }, 200);
 
     }
+
   }
 
   scrollPageFunc();
@@ -187,7 +190,7 @@ function scrollPage() {
 
 scrollPage();
 
-
+// =-=-=-=-=-=-=-=-=-=-=-=- </onscroll> -=-=-=-=-=-=-=-=-=-=-=-=
 
 
 
@@ -292,18 +295,7 @@ function resize() {
   resizeCheckFunc(992,
     function () {  // screen > 992px
 
-      /* menu.forEach(elem => {
-        elem.classList.remove('_active')
-      }) */
 
-      //html.style.setProperty('--header-height', header.offsetHeight + 'px');
-      /* if(header.classList.contains('_active')) {
-        header.classList.remove('_active');
-        html.style.setProperty('--header-height', header.offsetHeight + 'px');
-        header.classList.add('_active');
-      } else {
-        html.style.setProperty('--header-height', header.offsetHeight + 'px');
-      } */
 
     },
     function () {  // screen < 992px
@@ -331,14 +323,3 @@ window.onresize = resize;
 // =-=-=-=-=-=-=-=-=-=-=-=- <window.resize> -=-=-=-=-=-=-=-=-=-=-=-=
 
 
-/* 
-// =-=-=-=-=-=-=-=-=-=-=-=- <Анимации> -=-=-=-=-=-=-=-=-=-=-=-=
-
-wow = new WOW({
-mobile:       false,
-})
-wow.init();
-
-// =-=-=-=-=-=-=-=-=-=-=-=- </Анимации> -=-=-=-=-=-=-=-=-=-=-=-=
-
-*/

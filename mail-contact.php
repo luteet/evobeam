@@ -3,7 +3,7 @@
 	// Переменные
 
 	$name = $_POST['name'];
-	$phone = $_POST['phone'];
+	$tel = $_POST['tel'];
 	$email = $_POST['email'];
 	$question = $_POST['question'];
 
@@ -16,7 +16,7 @@
 	$message_all = 
 	"Сообщение из сайта ...: " .
 	"\n\nИмя: " . $name.
-	"\nТелефон: " . $phone.
+	"\nТелефон: " . $tel.
 	"\nE-mail: " . $email.
 	"\nВопрос: " . $question;
 
