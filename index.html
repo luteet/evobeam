@@ -15,7 +15,7 @@
             <h3 class="header__mob-tel-popup--title _title _center">
                 Как с вами связаться?
             </h3>
-            <form action="#" class="header__mob-tel-popup--form">
+            <form action="mail.php" method="post" class="header__mob-tel-popup--form">
                 <label class="header__mob-tel-popup--label">
                     <input type="text" name="name" placeholder="Имя" class="header__mob-tel-popup--input _input">
                 </label>
@@ -202,7 +202,7 @@
                 <h3 class="feedback__subtitle _title _center">
                     Заполните форму и мы с вами свяжемся
                 </h3>
-                <form action="#" class="feedback__form">
+                <form action="mail.php" method="post" class="feedback__form">
                     <div class="feedback__form--body">
                         <fieldset class="feedback__form--row">
                             <label class="feedback__form--label">
@@ -214,21 +214,19 @@
                             <label class="feedback__form--label">
                                 <input type="text" name="email" placeholder="E-mail" class="feedback__form--input _input">
                             </label>
-                            <label class="feedback__form--label">
+                            <div class="feedback__form--item">
                                 <button class="feedback__form--submit _btn">
                                     Отправить
                                 </button>
-                            </label>
-                        </fieldset>
-                        <fieldset class="feedback__form--footer">
-                            <div class="feedback__form--checkbox _checkbox-body">
-                                <input type="checkbox" id="feedback-check" class="feedback__form--input-checkbox _checkbox-input" required>
-                                <label for="feedback-check" class="feedback__form--checkbox-label _checkbox-label">
-                                    <div class="_checkbox-label-text">
-                                        Я согласен с <a href="#">пользовательским соглашением</a>
-                                        и <a href="#">политикой конфиденциальности</a>
-                                    </div>
-                                </label>
+                                <div class="feedback__form--checkbox _checkbox-body">
+                                    <input type="checkbox" id="feedback-check" class="feedback__form--input-checkbox _checkbox-input" required>
+                                    <label for="feedback-check" class="feedback__form--checkbox-label _checkbox-label">
+                                        <div class="_checkbox-label-text">
+                                            Я согласен с <a href="#">пользовательским соглашением</a>
+                                            и <a href="#">политикой конфиденциальности</a>
+                                        </div>
+                                    </label>
+                                </div>
                             </div>
                         </fieldset>
                     </div>

@@ -1432,7 +1432,6 @@ body._popup-active {
 }
 
 .wrapper {
-  overflow: hidden;
   -webkit-box-flex: 1;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
@@ -1720,12 +1719,33 @@ body._popup-active {
   max-height: var(--mob-max-height, 300px);
   overflow: hidden;
   display: block;
-  -webkit-transition: max-height 1s ease-in-out;
-  transition: max-height 1s ease-in-out;
+  -webkit-transition: max-height 0.2s ease;
+  transition: max-height 0.2s ease;
 }
 
 ._slide-elem._active {
-  max-height: 100%;
+  height: auto;
+  max-height: 9999px;
+}
+
+._sticky-elem {
+  position: static;
+}
+
+._sticky-elem._active {
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+._sticky-child {
+  position: static;
+}
+
+._sticky-child._active {
+  position: fixed;
+  left: 0;
+  top: 0;
 }
 
 ._main-title {
@@ -2163,11 +2183,11 @@ body._popup-active {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
-  padding: 10px 0;
+  padding: 5px 0;
 }
 
 .header__nav--list._contact-list {
-  padding: 10px 0;
+  padding: 5px 0;
 }
 
 .header__nav--list._menu-list .header__nav--item {
@@ -2257,6 +2277,11 @@ body._popup-active {
   display: inline-flex;
 }
 
+.header__logo--img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 .welding-category__list {
   padding-bottom: 35px;
 }
@@ -2295,9 +2320,9 @@ body._popup-active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   padding: 0;
@@ -2334,6 +2359,10 @@ body._popup-active {
       -ms-flex: 1 1 100%;
           flex: 1 1 100%;
   padding: 20px 0 0 0;
+}
+
+.feedback__form--checkbox {
+  padding-top: 10px;
 }
 
 .about-us__header {
@@ -2396,6 +2425,7 @@ body._popup-active {
 
 .about-us__certificates--title {
   padding-bottom: 30px;
+  text-align: center;
 }
 
 .about-us__certificates-item--body {
@@ -2561,20 +2591,35 @@ body._popup-active {
   line-height: 100%;
 }
 
-.welding-page__main-info {
-  padding-top: 33px;
+.welding-page {
+  position: relative;
+}
+
+.welding-page__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.welding-page__main-info--block {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 1 51%;
-          flex: 0 1 51%;
+.welding-page__col {
+  min-height: 100%;
+}
+
+.welding-page__col--body {
+  /* display: flex;
+  flex-direction: column; */
+}
+
+.welding-page__col--body._sticky {
+  position: sticky;
+  top: 0;
+}
+
+.welding-page__info--body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2587,6 +2632,21 @@ body._popup-active {
           align-items: flex-start;
 }
 
+.welding-page__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.welding-page__row > * {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
+}
+
 .welding-page__image {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 49%;
@@ -2595,6 +2655,8 @@ body._popup-active {
 
 .welding-page__image--img {
   width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .welding-page__title {
@@ -2649,12 +2711,15 @@ body._popup-active {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 100%;
           flex: 1 1 100%;
+  position: relative;
+}
+
+.welding-page__descr--body {
+  margin: 3px 0;
 }
 
 .welding-page__table-info {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 100%;
-          flex: 1 1 100%;
+  /* flex: 1 1 100%; */
   padding-top: 15px;
 }
 
@@ -3124,7 +3189,11 @@ body._popup-active {
   }
 
   .header__nav--link._menu-link {
-    font-size: 1rem;
+    font-size: 0.875rem;
+  }
+
+  .header__nav--link._btn {
+    font-size: 0.875rem;
   }
 
   .welding-category__slider {
@@ -3186,6 +3255,10 @@ body._popup-active {
     padding: 5px 0 0 12px;
   }
 
+  .feedback__form--checkbox {
+    padding-top: 15px;
+  }
+
   .about-us__header--info {
     padding: 22px 0;
   }
@@ -3200,15 +3273,18 @@ body._popup-active {
   }
 
   .about-us__certificates-list {
-    margin: -15px;
+    margin: -15px 0;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 
   .about-us__certificates-item {
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 205;
-            flex: 0 0 205;
+        -ms-flex: 0 0 205px;
+            flex: 0 0 205px;
     width: 205px;
     padding: 15px;
   }
@@ -3261,8 +3337,23 @@ body._popup-active {
     padding: 15px 15px;
   }
 
-  .welding-page__main-info--block {
-    padding-left: 30px;
+  .welding-page__container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .welding-page__info {
+    padding: 50px 0 50px 30px;
+  }
+
+  .welding-page__row {
+    display: none;
+  }
+
+  .welding-page__image--img {
+    height: 300px;
   }
 
   .welding-page__title {
@@ -3297,10 +3388,7 @@ body._popup-active {
   }
 
   .welding-page__table-info {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 1 50%;
-            flex: 0 1 50%;
-    padding: 15px;
+    padding: 15px 15px 50px 15px;
   }
 
   .contact-page__title {
@@ -3531,12 +3619,12 @@ body._popup-active {
 
   .header__nav--list._contact-list {
     margin: 0 -10px;
-    padding: 15px 0;
+    padding: 0;
   }
 
   .header__nav--list._menu-list {
-    padding: 25px 0;
-    margin: 0 -33px;
+    padding: 0;
+    margin: 0 -15px;
     position: relative;
     -webkit-box-pack: start;
         -ms-flex-pack: start;
@@ -3547,15 +3635,19 @@ body._popup-active {
   .header__nav--list._menu-list::before {
     content: "";
     position: absolute;
-    left: 33px;
+    left: 15px;
     top: 0;
-    width: calc(100% - 66px);
+    width: calc(100% - 30px);
     height: 1px;
     background-color: var(--text-alt-opacity);
   }
 
   .header__nav--list._menu-list .header__nav--item {
     margin: 7px 1px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+    border-right: 1px solid var(--text-alt-opacity);
   }
 
   .header__nav--list._contact-list .header__nav--link._btn {
@@ -3594,7 +3686,6 @@ body._popup-active {
   }
 
   .header__nav--link._contact-link {
-    font-size: 1.25rem;
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
@@ -3603,12 +3694,10 @@ body._popup-active {
   }
 
   .header__nav--link._menu-link {
-    font-size: 1.3125rem;
-    border-right: 1px solid var(--text-alt-opacity);
     border-bottom: 0px solid transparent;
     -webkit-transition: color 0.2s ease-in-out;
     transition: color 0.2s ease-in-out;
-    padding: 14px 33px;
+    padding: 14px 15px;
   }
 
   .header__nav--link._menu-link:hover {
@@ -3616,10 +3705,18 @@ body._popup-active {
     border-color: var(--text-alt-opacity);
   }
 
+  .header__nav--link._btn {
+    font-size: 1rem;
+  }
+
   .header__logo {
     -webkit-box-flex: 0;
-        -ms-flex: 0 1 33%;
-            flex: 0 1 33%;
+        -ms-flex: 0 1 25%;
+            flex: 0 1 25%;
+  }
+
+  .header__logo--img {
+    max-width: 250px;
   }
 
   .welding-category__item {
@@ -3665,8 +3762,8 @@ body._popup-active {
 
   .about-us__certificates-item {
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 245;
-            flex: 0 0 245;
+        -ms-flex: 0 0 245px;
+            flex: 0 0 245px;
     width: 245px;
   }
 
@@ -3721,6 +3818,10 @@ body._popup-active {
   .welding-type-page__slider-item--title {
     font-size: 1.3125rem;
     padding: 28px 15px;
+  }
+
+  .welding-page__image--img {
+    height: 340px;
   }
 
   .welding-page__title {
@@ -3817,6 +3918,22 @@ body._popup-active {
   }
 }
 
+@media (min-width: 1100px) {
+  .header__nav--link._menu-link {
+    font-size: 1rem;
+  }
+
+  .header__logo {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 33%;
+            flex: 0 1 33%;
+  }
+
+  .header__logo--img {
+    max-width: 337px;
+  }
+}
+
 @media (min-width: 1250px) {
   .feedback__form--row > * {
     -webkit-box-flex: 0;
@@ -3834,5 +3951,12 @@ body._popup-active {
 @media (min-width: 1480px) {
   .welding-type-page__slider--block {
     padding: 0 100px 40px 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  ._sticky-elem {
+    position: static !important;
+    width: auto !important;
   }
 }

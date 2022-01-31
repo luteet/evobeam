@@ -15,7 +15,7 @@
             <h3 class="header__mob-tel-popup--title _title _center">
                 Как с вами связаться?
             </h3>
-            <form action="#" class="header__mob-tel-popup--form">
+            <form action="mail.php" method="post" class="header__mob-tel-popup--form">
                 <label class="header__mob-tel-popup--label">
                     <input type="text" name="name" placeholder="Имя" class="header__mob-tel-popup--input _input">
                 </label>
@@ -143,230 +143,248 @@
 <div class="wrapper">
     <section class="welding-page _section-padding">
         <div class="welding-page__container _container">
-            <div class="welding-page__main-info">
-                <div class="welding-page__image">
-                    <img src="img/welding-page/image.png" loading="lazy" width="500" alt="" class="welding-page__image--img">
+            <div class="welding-page__row">
+                <div class="welding-page__image _mobile-place">
+                    <div class="welding-page__image--body _append-elem" data-append-to=".welding-page__image._desktop-place">
+                        <picture>
+                            <source srcset="img/welding-page/image.webp" type="image/webp">
+                            <img src="img/welding-page/image.png" loading="lazy" width="500" alt="" class="welding-page__image--img">
+                        </picture>
+                    </div>
                 </div>
-                <div class="welding-page__main-info--block">
-                    <h2 class="welding-page__title">
-                        Электронно-лучевая установка <br>
-                        типа "evobeam cube"
-                    </h2>
-                    <a href="#" class="welding-page__link-download">
-                        <span class="welding-page__link-download--icon _icon-download"></span>
-                        Скачать сертификат
-                    </a>
-                    <a href="#" class="welding-page__link-btn _btn">
-                        Заказать звонок
-                    </a>
+                <div class="welding-page__info _mobile-place">
+                    <div class="welding-page__info--body _append-elem" data-append-to=".welding-page__info._desktop-place">
+                        <h2 class="welding-page__title">
+                            Электронно-лучевая установка <br>
+                            типа "evobeam cube"
+                        </h2>
+                        <a href="#" class="welding-page__link-download">
+                            <span class="welding-page__link-download--icon _icon-download"></span>
+                            Скачать сертификат
+                        </a>
+                        <a href="#" class="welding-page__link-btn _btn">
+                            Заказать звонок
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="welding-page__content">
-                <div class="welding-page__descr _text-content">
-                    <p>
-                        Компания Evobeam (ФРГ, г. Майнц) - это ведущее предприятие 
-                        в Европе по созданию технологий и оборудования 
-                        для электронно-лучевой сварки (закалки, переплава, плакирования) и аддитивного производства. Для решения возникающих задач фирма Evobeam постоянно сотрудничаем 
-                        с ведущими технологическими и научными институтами Германии, например: Fraunhofer IWS, TU Berlin, TU Darmstadt. 
-                        Электронно-лучевые установки и автоматизированные линии, спроектированные и изготовленные специалистами компании Evobeam, успешно эксплуатируются по всему миру.
-                    </p>
-                    <p>
-                        Электронно-лучевое оборудование для аддитивного производства фирмы Sciaky
-                    </p>
-                    <ul>
-                        <li>изделия крупных и средних размеров></li>
-                        <li>очень высокая скорость нанесения материала</li>
-                        <li>протекание процесса в вакууме существенно увеличивает плотность и прочность материала</li>
-                        <li>низкая разрешающая способность</li>
-                        <li>изделия нуждаются в термической обработке</li>
-                        <li>чистовая форма изделия близка к окончательной, может потребоваться механическая обработка</li>
-                        <li>хорошо подходит для жаропрочных металлов</li>
-                    </ul>
+            <div class="welding-page__col">
+                <div class="welding-page__col--body _sticky">
+                    <div class="welding-page__image _desktop-place"></div>
+                    <div class="welding-page__descr">
+                        <div class="welding-page__descr--body _text-content">
+                            <p>
+                                Компания Evobeam (ФРГ, г. Майнц) - это ведущее предприятие 
+                                в Европе по созданию технологий и оборудования 
+                                для электронно-лучевой сварки (закалки, переплава, плакирования) и аддитивного производства. Для решения возникающих задач фирма Evobeam постоянно сотрудничаем 
+                                с ведущими технологическими и научными институтами Германии, например: Fraunhofer IWS, TU Berlin, TU Darmstadt. 
+                                Электронно-лучевые установки и автоматизированные линии, спроектированные и изготовленные специалистами компании Evobeam, успешно эксплуатируются по всему миру.
+                            </p>
+                            <p>
+                                Электронно-лучевое оборудование для аддитивного производства фирмы Sciaky
+                            </p>
+                            <ul>
+                                <li>изделия крупных и средних размеров></li>
+                                <li>очень высокая скорость нанесения материала</li>
+                                <li>протекание процесса в вакууме существенно увеличивает плотность и прочность материала</li>
+                                <li>низкая разрешающая способность</li>
+                                <li>изделия нуждаются в термической обработке</li>
+                                <li>чистовая форма изделия близка к окончательной, может потребоваться механическая обработка</li>
+                                <li>хорошо подходит для жаропрочных металлов</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="welding-page__table-info">
-                    <table class="welding-page__table-info--elem _table _slide-elem" style="--max-height: 525px; --mob-max-height: 325px;" id="slide-elem">
-                        <col class="welding-page__table-info--col-1">
-                        <col class="welding-page__table-info--col-2">
-                        <tbody>
-                            <tr>
-                                <th>
-                                    <b>1.1. Электронно-лучевая пушка</b>
-                                </th>
-                                <td>прямонакальная, 60кВ/6кВт</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    1.2. Тип катода
-                                </td>
-                                <td>
-                                    прямонакальная, 60кВ/6кВт
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    1.3. Стабилизация/повторяемость 
-                                    высокого напряжения
-                                </td>
-                                <td>
-                                    ±0,5%
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    1.4. Пульсации высокого напряжения
-                                </td>
-                                <td>
-                                    &lt;1%
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    1.5. Стабилизация/повторяемость тока луча
-                                </td>
-                                <td>
-                                    ±1%
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    1.6. Угол наклона луча
-                                </td>
-                                <td>
-                                    ±7 градусов
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    <b>2.1. Вакуумная система</b><br>
-                                    время откачки в камере до 5х10-4 мбар 
-                                    (начальный вакуум)
-                                </th>
-                                <td>менее 3 мин.</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    2.2. Рабочее давление 
-                                    в электронно-лучевой пушке
-                                </td>
-                                <td>
-                                    &lt;5x10-5 мбар
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    2.3. Время откачки в электронно-лучевой 
-                                    пушке после замены катода
-                                </td>
-                                <td>
-                                    &lt;5 мин.
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    <b>3.1. Механизм перемещения пушки </b>
-                                    (X координата УЧПУ)
-                                    управляемое 
-                                    перемещение по координате X
-                                </th>
-                                <td>400 мм</td>
-                            </tr>
-                            <tr>
-                                <td>3.2. Точность позиционирования</td>
-                                <td>&lt;0,05 мм</td>
-                            </tr>
-                            <tr>
-                                <td>3.3. Скорость перемещения</td>
-                                <td>максимум 50 мм/с</td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    4.1. <b>Стол</b>, оснащенный приводом 
-                                    для перемещения (Y координата УЧПУ), 
-                                    размеры стола
-                                </th>
-                                <td>
-                                    230 мм (X) x 415 мм (Y)
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4.2. Перемещение Y (точность 
-                                    позиционирования &lt;0.05 ммм)</td>
-                                <td>230 мм</td>
-                            </tr>
-                            <tr>
-                                <td>4.3. Максимальная нагрузка</td>
-                                <td>30 кг</td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    5.1. <b>Вращатель</b>, управляемый УЧПУ 
-                                    и имеющий возможность наклона,
-                                    скорость вращения
-                                </th>
-                                <td>макс. 72 об./мин.</td>
-                            </tr>
-                            <tr>
-                                <td>5.2. Вращающий момент</td>
-                                <td>макс. 32 Нм</td>
-                            </tr>
-                            <tr>
-                                <td>5.3. Максимальная нагрузка</td>
-                                <td>16 кг</td>
-                            </tr>
-                            <tr>
-                                <td>5.4. Диаметр планшайбы</td>
-                                <td>150 мм</td>
-                            </tr>
-                            <tr>
-                                <td>5.5. Радиальный люфт</td>
-                                <td>&lt;2 угловых минут</td>
-                            </tr>
-                            <tr>
-                                <td>5.6. Угол наклона вращателя</td>
-                                <td>от -20 до 90 градусов</td>
-                            </tr>
-                            <tr>
-                                <td>5.7. Свободная высота над вращателем 
-                                    в верхней точке</td>
-                                <td>300 мм</td>
-                            </tr>
-                            <tr>
-                                <th colspan="2">
-                                    <b>6.1. Система наблюдения</b>, экран и CCD камера с фокусирующими линзами, 
-                                    устройство защиты от испарения металла
-                                </th>
-                            </tr>
-                            <tr>
-                                <th colspan="2">
-                                    6.2. Система наблюдения по вторичным электронам
-                                </th>
-                            </tr>
-                            <tr>
-                                <th>
-                                    <b>7.1. Габариты установки:</b>
-                                    ширина/длина/высота
-                                </th>
-                                <td>
-                                    1,8/2.8/2.2 м
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>7.2. Масса</td>
-                                <td>около 2000 кг</td>
-                            </tr>
-                            <tr>
-                                <td>7.3. Потребляемая мощность</td>
-                                <td>не более 30 кВА</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="welding-page__table-info--footer">
-                        <button class="welding-page__table-info--slide-btn _btn _slide-btn" data-slide-id="slide-elem" data-active="Свернуть" data-default="Развернуть">
-                            <span class="welding-page__table-info--slide-text">
-                                Развернуть
-                            </span>
-                            <span class="welding-page__table-info--slide-icon _icon-arrow"></span>
-                        </button>
+            </div>
+            
+            <div class="welding-page__col">
+                <div class="welding-page__col--body">
+                    <div class="welding-page__info _desktop-place"></div>
+                    <div class="welding-page__table-info">
+                        <table class="welding-page__table-info--elem _table _slide-elem" style="--max-height: 525px; --mob-max-height: 325px;" id="slide-elem">
+                            <col class="welding-page__table-info--col-1">
+                            <col class="welding-page__table-info--col-2">
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        <b>1.1. Электронно-лучевая пушка</b>
+                                    </th>
+                                    <td>прямонакальная, 60кВ/6кВт</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        1.2. Тип катода
+                                    </td>
+                                    <td>
+                                        прямонакальная, 60кВ/6кВт
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        1.3. Стабилизация/повторяемость 
+                                        высокого напряжения
+                                    </td>
+                                    <td>
+                                        ±0,5%
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        1.4. Пульсации высокого напряжения
+                                    </td>
+                                    <td>
+                                        &lt;1%
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        1.5. Стабилизация/повторяемость тока луча
+                                    </td>
+                                    <td>
+                                        ±1%
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        1.6. Угол наклона луча
+                                    </td>
+                                    <td>
+                                        ±7 градусов
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <b>2.1. Вакуумная система</b><br>
+                                        время откачки в камере до 5х10-4 мбар 
+                                        (начальный вакуум)
+                                    </th>
+                                    <td>менее 3 мин.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        2.2. Рабочее давление 
+                                        в электронно-лучевой пушке
+                                    </td>
+                                    <td>
+                                        &lt;5x10-5 мбар
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        2.3. Время откачки в электронно-лучевой 
+                                        пушке после замены катода
+                                    </td>
+                                    <td>
+                                        &lt;5 мин.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <b>3.1. Механизм перемещения пушки </b>
+                                        (X координата УЧПУ)
+                                        управляемое 
+                                        перемещение по координате X
+                                    </th>
+                                    <td>400 мм</td>
+                                </tr>
+                                <tr>
+                                    <td>3.2. Точность позиционирования</td>
+                                    <td>&lt;0,05 мм</td>
+                                </tr>
+                                <tr>
+                                    <td>3.3. Скорость перемещения</td>
+                                    <td>максимум 50 мм/с</td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        4.1. <b>Стол</b>, оснащенный приводом 
+                                        для перемещения (Y координата УЧПУ), 
+                                        размеры стола
+                                    </th>
+                                    <td>
+                                        230 мм (X) x 415 мм (Y)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4.2. Перемещение Y (точность 
+                                        позиционирования &lt;0.05 ммм)</td>
+                                    <td>230 мм</td>
+                                </tr>
+                                <tr>
+                                    <td>4.3. Максимальная нагрузка</td>
+                                    <td>30 кг</td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        5.1. <b>Вращатель</b>, управляемый УЧПУ 
+                                        и имеющий возможность наклона,
+                                        скорость вращения
+                                    </th>
+                                    <td>макс. 72 об./мин.</td>
+                                </tr>
+                                <tr>
+                                    <td>5.2. Вращающий момент</td>
+                                    <td>макс. 32 Нм</td>
+                                </tr>
+                                <tr>
+                                    <td>5.3. Максимальная нагрузка</td>
+                                    <td>16 кг</td>
+                                </tr>
+                                <tr>
+                                    <td>5.4. Диаметр планшайбы</td>
+                                    <td>150 мм</td>
+                                </tr>
+                                <tr>
+                                    <td>5.5. Радиальный люфт</td>
+                                    <td>&lt;2 угловых минут</td>
+                                </tr>
+                                <tr>
+                                    <td>5.6. Угол наклона вращателя</td>
+                                    <td>от -20 до 90 градусов</td>
+                                </tr>
+                                <tr>
+                                    <td>5.7. Свободная высота над вращателем 
+                                        в верхней точке</td>
+                                    <td>300 мм</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">
+                                        <b>6.1. Система наблюдения</b>, экран и CCD камера с фокусирующими линзами, 
+                                        устройство защиты от испарения металла
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">
+                                        6.2. Система наблюдения по вторичным электронам
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <b>7.1. Габариты установки:</b>
+                                        ширина/длина/высота
+                                    </th>
+                                    <td>
+                                        1,8/2.8/2.2 м
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>7.2. Масса</td>
+                                    <td>около 2000 кг</td>
+                                </tr>
+                                <tr>
+                                    <td>7.3. Потребляемая мощность</td>
+                                    <td>не более 30 кВА</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="welding-page__table-info--footer">
+                            <button class="welding-page__table-info--slide-btn _btn _slide-btn" data-slide-id="slide-elem" data-active="Свернуть" data-default="Развернуть">
+                                <span class="welding-page__table-info--slide-text">
+                                    Развернуть
+                                </span>
+                                <span class="welding-page__table-info--slide-icon _icon-arrow"></span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

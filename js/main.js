@@ -126,9 +126,11 @@ function getCoords(elem) {
 
 }
 
+let sticky;
 
 
 function scrollPage() {
+
 
   const offsetCheckJs = document.querySelector('.offset-check-js');
   let top = [getCoords(offsetCheckJs).top, false];
@@ -139,6 +141,8 @@ function scrollPage() {
 
   function scrollPageFunc() {
     top[0] = getCoords(offsetCheckJs).top;
+
+
 
     if (top[0] >= 300 && top[1] == false) {
 
@@ -189,6 +193,17 @@ scrollPage();
 
 // =-=-=-=-=-=-=-=-=-=-=-=- <window.resize> -=-=-=-=-=-=-=-=-=-=-=-=
 
+let firstStart = true;
+
+let appendElem = document.querySelectorAll('._append-elem'),
+    appendElemList = [];
+
+if(appendElem[0]) {
+  appendElem.forEach(thisElement => {
+    appendElemList.push([thisElement, thisElement.parentNode, document.querySelector(thisElement.dataset.appendTo)]);
+  })
+}
+
 let resizeCheck = {},
   windowSize;
 
@@ -217,6 +232,16 @@ function resize() {
 
       if (weldingCategorySlider) weldingCategorySlider.destroy(true, true);
       if (aboutUsCertigicatesSlider) aboutUsCertigicatesSlider.destroy(true, true);
+
+      if(appendElem[0]) {
+        for(let index = 0; index<appendElemList.length; index++) {
+
+          if(appendElemList[index][2]) {
+            appendElemList[index][2].append(appendElemList[index][0]);
+          }
+          
+        }
+      }
 
     },
     function () {  // screen < 768px
@@ -252,6 +277,17 @@ function resize() {
         });
       }
 
+      if(appendElem[0] && !firstStart) {
+        for(let index = 0; index<appendElemList.length; index++) {
+
+          if(appendElemList[index][1]) {
+            appendElemList[index][1].append(appendElemList[index][0]);
+          }
+          
+        }
+      }
+
+
     });
   resizeCheckFunc(992,
     function () {  // screen > 992px
@@ -283,6 +319,7 @@ function resize() {
       
   });
 
+  firstStart = false;
 
 }
 
