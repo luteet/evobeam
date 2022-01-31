@@ -291,7 +291,7 @@ function resize() {
       }
 
 
-    });
+  });
   resizeCheckFunc(992,
     function () {  // screen > 992px
 
@@ -299,7 +299,7 @@ function resize() {
 
     },
     function () {  // screen < 992px
-
+      
       if(header.classList.contains('_active')) {
         header.classList.remove('_active');
         html.style.setProperty('--header-height', header.offsetHeight + 'px');
@@ -321,5 +321,7 @@ window.onresize = resize;
 
 
 // =-=-=-=-=-=-=-=-=-=-=-=- <window.resize> -=-=-=-=-=-=-=-=-=-=-=-=
+
+
 
 
