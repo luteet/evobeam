@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
-    text
-    
+
     <div class="offset-check-js"></div>
     <div class="header__mob-tel-popup _header-popup" id="header-mob-tel">
         <div class="header__mob-tel-popup--body">
@@ -149,16 +148,12 @@
                     <h2 class="welding-type-page__header--row-title _section-title">
                         Электронно-лучевая сварка
                     </h2>
-                    <form action="#" class="welding-type-page__header--form">
-                        <label class="welding-type-page__header--label _select-label">
-                            <select name="welding-type" class="welding-type-page__header--select _select">
-                                <option value="welding-type-1">К оборудованию</option>
-                                <option value="welding-type-2">К оборудованию 2</option>
-                                <option value="welding-type-3">К оборудованию 3</option>
-                            </select>
-                            <span class="welding-type-page__header--select-icon _icon-arrow _select-icon"></span>
-                        </label>
-                    </form>
+                    <div class="welding-type-page__header--item">
+                        <a href="#welding-slider" class="welding-type-page__header--link _btn-to-scroll">
+                            К оборудованию
+                            <span class="welding-type-page__header--icon _icon-arrow"></span>
+                        </a>
+                    </div>
                 </div>
                 <div class="welding-type-page__header--banner">
                     <div class="welding-type-page__header--bg">
@@ -185,7 +180,7 @@
                 </p>
                 <picture>
                     <source srcset="img/welding-type/content/image.webp" type="image/webp">
-                    <img src="img/welding-type/content/image.jpg" width="460" alt="">
+                    <img src="img/welding-type/content/image.jpg" width="360" alt="">
                 </picture>
                 <p>
                     <em>Электронно-лучевая сварка</em><br>
@@ -217,7 +212,7 @@
                     Компания Evobeam предоставляет различные аксессуары, разработку и изготовление оснастки, обновление и модернизацию узлов и систем электронно-лучевых установок с минимальным временем оснастки оборудования.
                 </p>
             </div>
-            <div class="welding-type-page__slider">
+            <div class="welding-type-page__slider" id="welding-slider">
                 <div class="welding-type-page__slider--block swiper">
                     <h2 class="welding-type-page__slider--title _section-title _center">
                         Примеры оборудования

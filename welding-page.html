@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
-    text
-    
+
     <div class="offset-check-js"></div>
     <div class="header__mob-tel-popup _header-popup" id="header-mob-tel">
         <div class="header__mob-tel-popup--body">
@@ -163,7 +162,7 @@
                             <span class="welding-page__link-download--icon _icon-download"></span>
                             Скачать сертификат
                         </a>
-                        <a href="#" class="welding-page__link-btn _btn">
+                        <a href="#welding-page-popup" class="welding-page__link-btn _btn _open-popup">
                             Заказать звонок
                         </a>
                     </div>
@@ -391,6 +390,42 @@
             </div>
         </div>
     </section>
+</div>
+<div class="welding-page__popup _popup" id="welding-page-popup" style="display: none; opacity: 0;">
+    <div class="welding-page__popup--wrapper _popup-wrapper">
+        <div class="welding-page__popup--bg _popup-bg _popup-close"></div>
+        <div class="welding-page__popup--body _popup-body">
+            <button type="button" class="welding-page__popup--close-btn _popup-close-btn _popup-close">✕</button>
+            <h2 class="welding-page__popup--title _title _center">
+                Как с вами связаться?
+            </h2>
+            <form action="mail.php" class="welding-page__popup--form">
+                <label class="welding-page__popup--label">
+                    <input type="text" name="name" placeholder="Имя" class="welding-page__popup--input _input">
+                </label>
+                <label class="welding-page__popup--label">
+                    <input type="text" name="tel" placeholder="Телефон" class="welding-page__popup--input _input">
+                </label>
+                <label class="welding-page__popup--label">
+                    <input type="text" name="email" placeholder="E-mail" class="welding-page__popup--input _input">
+                </label>
+                <label class="welding-page__popup--label">
+                    <button type="submit" class="welding-page__popup--submit _btn">
+                        Отправить
+                    </button>
+                </label>
+                <div class="welding-page__popup--checkbox _checkbox-body">
+                    <input type="checkbox" id="welding-page-popup-check" class="welding-page__popup--input-checkbox _checkbox-input" required>
+                    <label for="welding-page-popup-check" class="welding-page__popup--checkbox-label _checkbox-label">
+                        <div class="welding-page__popup--checkbox-text _checkbox-label-text">
+                            Я согласен с <a href="#">пользовательским соглашением</a>
+                            и <a href="#">политикой конфиденциальности</a>
+                        </div>
+                    </label>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
     <footer class="footer">

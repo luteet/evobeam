@@ -1415,6 +1415,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding-right: var(--popup-padding);
 }
 
 body._active {
@@ -1543,7 +1544,7 @@ body._popup-active {
   font-size: 1.125rem;
   min-height: 50px;
   line-height: 150%;
-  border-radius: 25px;
+  border-radius: var(--border-radius);
   border: 1px solid var(--accent);
   -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
@@ -1780,8 +1781,8 @@ body._popup-active {
 }
 
 ._text-content {
-  font-size: 0.625rem;
-  line-height: 127%;
+  font-size: 0.8125rem;
+  line-height: 155%;
   font-weight: 300;
   color: var(--black);
 }
@@ -1959,6 +1960,79 @@ body._popup-active {
   color: var(--accent);
   font-size: 7px;
   margin-left: 5px;
+}
+
+._popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  z-index: 100;
+}
+
+._popup-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100%;
+  z-index: 2;
+}
+
+._popup-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.7;
+}
+
+._popup-body {
+  margin: auto;
+  position: relative;
+  background-color: white;
+  overflow-y: auto;
+  max-height: calc(100vh - 30px);
+  width: 100%;
+  max-width: 500px;
+  padding: 15px;
+  border-radius: 14px;
+  -webkit-box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+._popup-close-btn {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  line-height: 100%;
+  width: 30px;
+  height: 37px;
+  font-size: 22px;
+  background-color: var(--white);
+  -webkit-transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
+}
+
+._popup-close-btn:hover {
+  color: var(--accent-alt);
 }
 
 ._header-popup-open._active ._header-popup-open-icon::before {
@@ -2475,13 +2549,35 @@ body._popup-active {
   margin: 0 auto;
 }
 
-.welding-type-page__header--form {
+.welding-type-page__header--item {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: 1/1;
   -ms-grid-column-align: end;
       justify-self: end;
   padding: 10px;
+}
+
+.welding-type-page__header--link {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: var(--accent);
+  font-size: 0.875rem;
+  -webkit-transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
+}
+
+.welding-type-page__header--link:hover {
+  color: var(--accent-alt);
+}
+
+.welding-type-page__header--icon {
+  font-size: 7px;
+  margin-left: 10px;
 }
 
 .welding-type-page__header--banner {
@@ -2531,7 +2627,7 @@ body._popup-active {
 }
 
 .welding-type-page__content {
-  padding-top: 40px;
+  padding-top: 20px;
 }
 
 .welding-type-page__slider {
@@ -2586,8 +2682,8 @@ body._popup-active {
 }
 
 .welding-type-page__slider-item--title {
-  padding: 4px 15px;
-  font-size: 0.5rem;
+  padding: 4px 10px;
+  font-size: 0.7rem;
   line-height: 100%;
 }
 
@@ -2761,6 +2857,33 @@ body._popup-active {
   transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
 }
 
+.welding-page__popup {
+  /* &--checkbox-text {
+      font-size: 0.875rem;
+  } */
+}
+
+.welding-page__popup--title {
+  font-weight: 700 !important;
+}
+
+.welding-page__popup--form {
+  padding-top: 15px;
+}
+
+.welding-page__popup--label {
+  display: block;
+  margin: 10px 0;
+}
+
+.welding-page__popup--input {
+  width: 100%;
+}
+
+.welding-page__popup--submit {
+  width: 100%;
+}
+
 .contact-page__title {
   padding: 20px 0 15px 0;
 }
@@ -2807,7 +2930,8 @@ body._popup-active {
 }
 
 .contact-page__item--title {
-  font-size: 0.875rem;
+  font-size: 1rem;
+  padding-bottom: 5px;
 }
 
 .contact-page__item--li {
@@ -2820,7 +2944,9 @@ body._popup-active {
 .contact-page__item--link {
   color: var(--accent);
   /* line-height: 155%; */
-  font-size: 0.625rem;
+  font-size: 0.875rem;
+  display: inline-block;
+  margin: 3px 0;
   -webkit-transition: color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out;
 }
@@ -2872,12 +2998,6 @@ body._popup-active {
 
 .contact-page__form--fieldset {
   padding: 0;
-  /* &._min {
-      flex: 0 1 44%;
-  }
-  &._large {
-      flex: 0 1 56%;
-  } */
 }
 
 .contact-page__form--label {
@@ -2903,9 +3023,6 @@ body._popup-active {
       -ms-flex: 0 1 50%;
           flex: 0 1 50%;
   padding: 15px 0 0 0;
-  /* @include _992 {
-      margin-top: -15px;
-  } */
   -ms-grid-column-align: center;
       justify-self: center;
   -ms-grid-column: 1;
@@ -3049,6 +3166,18 @@ body._popup-active {
 
   ._text-content img {
     border-radius: var(--border-radius);
+  }
+
+  ._popup-body {
+    padding: 30px;
+  }
+
+  ._popup-close-btn {
+    right: 15px;
+    top: 20px;
+    font-size: 32px;
+    width: 40px;
+    height: 47px;
   }
 
   .header__mob-tel-popup--submit {
@@ -3303,6 +3432,14 @@ body._popup-active {
     max-width: 50%;
   }
 
+  .welding-type-page__header--link {
+    font-size: 1rem;
+  }
+
+  .welding-type-page__header--icon {
+    font-size: 10px;
+  }
+
   .welding-type-page__header--info {
     padding: 10px 80px;
   }
@@ -3314,6 +3451,10 @@ body._popup-active {
 
   .welding-type-page__header--title {
     font-size: 1.3rem;
+  }
+
+  .welding-type-page__content {
+    padding-top: 40px;
   }
 
   .welding-type-page__slider {
@@ -3391,6 +3532,14 @@ body._popup-active {
     padding: 15px 15px 50px 15px;
   }
 
+  .welding-page__popup--form {
+    padding-top: 25px;
+  }
+
+  .welding-page__popup--label {
+    margin: 15px 0;
+  }
+
   .contact-page__title {
     padding: 30px 0 50px 0;
   }
@@ -3415,12 +3564,12 @@ body._popup-active {
 
   .contact-page__item--title {
     font-size: 1.2rem;
-    padding-bottom: 5px;
   }
 
   .contact-page__item--link {
     font-size: 1rem;
     line-height: 155%;
+    margin: 0;
   }
 
   .contact-page__form {
@@ -3508,12 +3657,6 @@ body._popup-active {
     display: none;
   }
 
-  ._btn {
-    font-size: 1.625rem;
-    min-height: 70px;
-    padding: 15px 15px;
-  }
-
   ._btn._alt {
     padding: 9px 23px;
     font-size: 1.25rem;
@@ -3552,14 +3695,9 @@ body._popup-active {
     font-size: 1.625rem;
   }
 
-  ._text-content {
-    font-size: 1.3125rem;
-  }
-
   ._input,
   ._textarea {
-    font-size: 1.125rem;
-    padding: 20px 30px;
+    /* padding: 20px 30px; */
   }
 
   ._select {
@@ -3767,12 +3905,12 @@ body._popup-active {
     width: 245px;
   }
 
-  .about-us__certificates-item--name {
-    font-size: 1.3125rem;
-  }
-
   .welding-type-page__header--row {
     padding: 70px 0 60px 0;
+  }
+
+  .welding-type-page__header--link {
+    font-size: 1.125rem;
   }
 
   .welding-type-page__header--info {
@@ -3829,11 +3967,11 @@ body._popup-active {
   }
 
   .welding-page__link-download {
-    font-size: 1.625rem;
+    font-size: 1.3125rem;
   }
 
   .welding-page__link-download--icon {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .contact-page__title {
@@ -3849,12 +3987,7 @@ body._popup-active {
   }
 
   .contact-page__item--title {
-    font-size: 1.625rem;
     padding-bottom: 10px;
-  }
-
-  .contact-page__item--link {
-    font-size: 1.3125rem;
   }
 
   .contact-page__form {
